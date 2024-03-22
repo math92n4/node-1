@@ -1,0 +1,273 @@
+<div class="container p-20 lg:flex">
+    <div class="rounded-xl bg-boxColor box-shadow text-center lg:w-1/4 border-4 border-blue-600 outline outline-blue-400 lg:h-3/6 mb-7 p-5">
+        <h1 class="font-bold text-2xl">Content</h1>
+        <ol>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">Start up express</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">app.js</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">REST API</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">GET Request</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">POST Request</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">PUT Request</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">DELETE Request</a></li>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">Serving static</a></li>
+        </ol>
+    </div>
+
+<div class="bg-boxColor box-shadow lg:w-1/2 lg:mx-32 border-4 border-blue-600 outline outline-blue-400 rounded-xl">
+    <h1 class="text-3xl font-bold m-4">Start up express</h1>
+    
+    <p class="m-3 my-3 leading-7">
+        Express is a web application framework for Node.js <br>
+        To start up express we need a dependency in our package.json:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// package.json</code> <br>
+        <code>{<br>"dependencies": {</code> <br>
+        <code>"express": "^4.18.3"<br> } <br> }</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        After defining the dependency, we can open a console window and type:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>npm install</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This downloads our dependency and puts it in the node_modules and we can now import 
+        it to a file.
+    </p>
+
+    <h1 class="text-3xl font-bold m-4">app.js</h1>
+
+    <p class="m-3 my-3 leading-7">
+        Let's create a new file called app.js. This is where our webserver will be hosted. <br>
+        In the app.js file we need to import express from node_modules aswell as defining a
+        port where our server will be running from.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// app.js</code> <br>
+        <code>import express from "express"</code> <br>
+        <code>const app = express();</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        We can now use the app to make different calls once we define a port where our server will be running
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// app.js</code> <br>
+        <code>const port = 8080;</code> <br>
+        <code>app.listen(PORT, () => console.log(`Server is running on port ${PORT}));`</code>
+    </div>
+    
+    <h1 class="text-3xl font-bold m-4">REST API</h1>
+
+    <p class="m-3 my-3 leading-7">
+        A REST API is used for building web services and sending data to the client. <br>
+        We mainly use fetch() from a JavaScript frontend file and then display the data in the UI. <br>
+        It has some specific verbs that is important to become familiar with. <br>
+        <ol>
+            <li class="my-3 m-3">GET - Gets data from the API</li>
+            <li class="my-3 m-3">POST - Sends / Posts data to the API</li>
+            <li class="my-3 m-3">PUT - Updates / Edits any existing data by id</li>
+            <li class="my-3 m-3">PATCH - Basically the same as PUT, but PUT updates the whole ressource and
+                PATCH only updates some parts of the ressource
+            </li>
+            <li class="my-3 m-3">DELETE - Deletes any ressource by id</li>
+        </ol>
+    </p>
+
+    <p class="m-3 my-3 leading-7">
+        With the types of requests it's important to know that there a different ways to use this verbs. <br>
+        Let's check this out in the next couple of sections. Lets work around the data right below this
+        which is a list of objects / ressources:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>const people = [</code> <br>
+        <code>{ id: 1, name: 'Tom Cruise'},</code> <br>
+        <code>{ id: 2, name: 'Will Smith'},</code> <br>
+        <code>{ id: 3, name: 'Bruce Willis'} <br> ]</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This can simmulate a database for us in the upcoming sections and talk about requests.
+    </p>
+
+    <h1 class="text-3xl font-bold m-4">GET Request</h1>
+
+    <p class="m-3 my-3 leading-7">
+        A GET request gets one or more ressource(s) from the API, so it's either a list of ressources
+        or just one ressource. <br>
+        If we only want one, we typically use the id of a ressource to retrive it.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// ... import express</code> <br>
+        <code class="text-green-600">// ... define list of people</code> <br>
+        <code>app.get('/'), (req, res) => { </code> <br>
+        <code>res.send(people) <br> }</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        We can now go to localhost:8080 in our browser and see the requested data if the server is up and running. <br>
+        And this is the data we should be able to see:
+        <img class="w-72 h-72" src="../assets/images/express/json.png" alt="">
+    </p>
+
+    <p class="m-3 my-3 leading-7">
+        Now let's try to access only one of the people by defining another a route in app.js. <br>
+        Note that this time it requires a path variable from the request
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// ... import express</code> <br>
+        <code class="text-green-600">// ... define list of people</code> <br>
+        <code>app.get('/:id'), (req, res) => { </code> <br>
+        <code class="text-green-600">// access the id</code> <br>
+        <code>const id = req.params.id;</code><br>
+        <code class="text-green-600">// the id is a string as its coming from the request. Lets parse it</code> <br>
+        <code>const parsedId = parseInt(id);</code><br>
+        <code class="text-green-600">// find the specific person</code> <br>
+        <code>const person = people.find(person => person.id === parsedId);</code> <br>
+        <code>if(!person) {</code> <br>
+        <code>res.status(404).send( {data: 'No person with that id'} )</code> <br>
+        <code>} else { <br>res.send(person)<br>}<br>});</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        Note that we added some error handling in case the id doesn't match a person. <br>
+        If we want to access this we could go back to the browser and search for
+        localhost:8080/1. This should give us Tom Cruise back as json.
+    </p>
+
+
+    <h1 class="text-3xl font-bold m-4">POST Request</h1>
+    <p class="m-3 my-3 leading-7">
+        When we want to make a POST request we can send data to our server. As we are having examples
+        without a database, we simmulate that by having a list of people. If we had a database, we could
+        write queries and actually persist the people we are posting. But for now, we just use a list
+        and if we post and restart the server, the person will not be persisted. Pretty much every
+        database has a way of auto increment the id when posting a new ressource. We will handle
+        it differently in this example as we need to keep track of their id's and we are not aware
+        of how many people is in the list. <br>
+        Also we have to use a program such as <a href="https://www.postman.com/downloads/" class="underline">Postman</a>
+        to actually make a post request as it has a body containing a ressource. <br>
+        Let's post Samuel L Jackson to the list:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// ... import express</code> <br>
+        <code class="text-green-600">// ... define list of people</code> <br>
+        <code>app.post('/'), (req, res) => { </code> <br>
+        <code class="text-green-600">// access the last persons id</code> <br>
+        <code>const lastPerson = people[people.length - 1];</code><br>
+        <code class="text-green-600">// the id is a string. Lets parse it</code> <br>
+        <code>const parsedId = parseInt(lastPerson.id + 1);</code><br>
+        <code class="text-green-600">// Make a new object with the name of the body that was requested</code> <br>
+        <code>const name = req.body.name</code> <br>
+        <code>const newPerson = {</code> <br>
+        <code>id: parsedId,</code> <br>
+        <code>name: name <br>}</code> <br> <br>
+        <code>people.push(newPerson)</code> <br>
+        <code>res.send(newDrink) <br>});</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        The response will be the newly added person as json and if we try and use our GET request, without the server
+        having restarted, we can now see four people with the new one added.
+    </p>
+
+
+    <h1 class="text-3xl font-bold m-4">PUT Request</h1>
+
+    <p class="m-3 my-3 leading-7">
+        As mentioned before a PUT request updates the whole ressource based on id.
+        So it has pretty much the same approach as getting one element, but now we want to edit it
+        with the requested body.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// ... import express</code> <br>
+        <code class="text-green-600">// ... define list of people</code> <br>
+        <code>app.put('/:id', (req,res) => { </code> <br>
+        <code>const id = parseInt(req.params.id);</code> <br>
+        <code>const person = people.find(person => person.id === id); </code> <br>
+        <code>if(!person) { </code> <br>
+        <code>res.status(404).send({ data: `No person found with id ${id} found` })</code> <br>
+        <code>} else { </code> <br>
+        <code>const newName = req.body.name; </code> <br>
+        <code>person.name = newName; </code><br>
+        <code>res.send(drink); <br>} <br>});</code>    
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This updates the ressource from the requested body, and the response sends back the new edited person
+    </p>
+
+    <h1 class="text-3xl font-bold m-4">DELETE Request</h1>
+    
+    <p class="m-3 my-3 leading-7">
+        Lets delete Tom Cruise!
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// ... import express</code> <br>
+        <code class="text-green-600">// ... define list of people</code> <br>
+        <code>app.delete('/:id', (req, res) => {</code> <br>
+        <code>const id = parseInt(req.params.id)</code> <br>
+        <code>const person = people.find(person => person.id === id)</code> <br>
+        <code>if(!person) { </code> <br>
+        <code>res.status(404).send({ data: `No person found with id ${id} found` })</code> <br>
+        <code>} else {</code> <br>
+        <code>const index = people.indexOf(person);</code> <br>
+        <code>people.splice(index, 1);</code> <br>
+        <code>res.send(person); <br>} <br>});</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        If we send a DELETE request with the id 1, we will delete Tom Cruise from the list 
+        and Tom Cruise will be sent back to us as json.
+    </p>
+
+    <h1 class="text-3xl font-bold m-4">Serving static</h1>
+
+    <p class="m-3 my-3 leading-7">
+        If we want to serve static files, we need to add a line after importing express.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>app.use(express.static('/PATH/TO/FILES'))</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This makes it possible for us to serve static templates from the given folder without having 
+        any processing by the server. This means that we cannot dynamically update the template. <br>
+        Lets make a route to serve a static template:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>app.get('/', (req, res) => {</code> <br>
+        <code>res.sendFile(__dirname + '/PATH/TO/FILES/index.html')</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        Whatever is written in the html file will we displayed to the user when hitting this endpoint. <br>
+        We can also make use of the fs readFile as mentioned in another module. This way it's possible break
+        the UI into components and then connect them in one file and send it. <br>
+        A very sad way of doing it.
+    </p>
+
+    
+</div>
+
+</div>
+
+<script src="../assets/js/scroll.js"></script>
+
+</body>
+</html>

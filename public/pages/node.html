@@ -1,0 +1,148 @@
+<div class="container p-20 lg:flex">
+    <div class="rounded-xl bg-boxColor box-shadow text-center lg:w-1/4 border-4 border-blue-600 outline outline-blue-400 lg:h-3/6 mb-7 p-5">
+        <h1 class="font-bold text-2xl">Content</h1>
+        <ol>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">Create first node project</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">node_modules</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">.json</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Nodemon</a></li>
+            
+        </ol>
+    </div>
+
+<div class="bg-boxColor box-shadow lg:w-1/2 lg:mx-32 border-4 border-blue-600 outline outline-blue-400 rounded-xl">
+    <h1 class="text-3xl font-bold m-4">Create first node project</h1>
+
+    <p class="my-3 m-3 leading-7">
+        Node is created to write server side JavaScript, and is installed by visiting
+        <a class="underline"href="https://nodejs.org/en/download">Node.js download</a>. <br>
+        To get started with the first node.js project open up a desired folder
+        and create a package.json file containing:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>{<br>"dependencies": { <br> } <br> }</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        Open a terminal and go to the folder of package.json file and type:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>npm install express</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This creates the node_modules folder and installs a new dependency in the package.json file.
+        Express will be covered later. <br>
+        If we ever want to execute a file within a node enviroment, we can open a console, 
+        find the folder where our JavaScript is located and run node app.js (assuming our js file is called app)
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>node app.js</code>
+    </div>
+    
+    <h1 class="text-3xl font-bold m-4">node_modules</h1>
+
+    <p class="m-3 my-3 leading-7">
+        node_modules is a folder that contains all dependencies a node project uses.
+        So its quite a big directory. When npm is used (node package manager) given the following
+        command is a known dependency, the dependency is downloaded
+        to the node_modules folder. Like in the express example before. In a node project, it's 
+        possible to import these modules and use them in the project's code. Lets try to import the fs which
+        is a module read files. Write this at the top of a file:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>import fs from "fs"</code> <br>
+        <code class="text-green-600">// Lets read a file using fs</code><br>
+        <code>const file = fs.readFileSync('text.txt', 'utf-8');</code><br>
+        <code class="text-green-600">// The file constains 'Tom Cruise'</code> <br>
+        <code>console.log(file)</code><br>
+        <code class="text-green-600">// Outputs: Tom Cruise</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        Keep in mind that the second parameter in fs.readFileSync() can be swapped
+        with a toString(). This would be the same result
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Same results</code><br>
+        <code>const file = fs.readFileSync('text.txt', 'utf-8');</code><br>
+        <code>const fileToString = fs.readFileSync('text.txt').toString();</code><br>
+    </div>
+
+    <h1 class="text-3xl font-bold m-4">.json</h1>
+    <p class="m-3 my-3 leading-7">
+        The .json format stands for JavaScript Object Notation and is probably the most
+        used format for sending data around from different APIs. This is one way using json,
+        but in node we also use this format to declare different dependencies. Just like maven uses xml
+        and other dependency / build tools. <br>
+        A .json file always starts with an empty set of curly brackets. Inside these are the data.<br>
+        Arrays are defined with square brackets and objects with curly brackets. Almost just like normal JavaScript.
+        The main difference is putting property names / keys in quotes.
+        <br>Within our package.json we can define other things such as scripts and devDependencies.
+    </p>
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// JSON</code><br>
+        <code>"name": "Tom", </code><br>
+        <code>"lastname": "Cruise" </code><br> <br>
+        <code class="text-green-600">// JavaScript</code><br>
+        <code>name: "Tom", </code><br>
+        <code>lastname: "Cruise" </code><br>
+    </div>
+
+    <h1 class="text-3xl font-bold m-4">Nodemon</h1>
+
+    <p class="m-3 my-3 leading-7">
+        Nodemon is a utility from node.js that allows you to restart an app when changes to files 
+        or new files has been created. <br>
+        This is very useful if a server is running on your node app. Instead opening a console and
+        type node app.js every time a change has been made, we can simply type:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>npx nodemon app.js</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        In fact, we can create a script in our package.json that runs this command for us.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// package.json</code> <br>
+        <code>{<br>"dependencies": {</code> <br>
+        <code>"express": "^4.18.3"<br> },</code><br>
+        <code>"scripts": { <br></code>
+        <code>"dev": "npx nodemon app.js<br> } <br>}</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This allows us to enter the terminal a write npm run dev as our script is called dev.
+        This makes the app restart on any change. <br>
+        So lets imagine a very large app with a lot of files. In some cases
+        it's useful to define what type of files nodemon should listen to 
+        if changes are made, so we can actually make the script even smarter: 
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// package.json</code> <br>
+        <code>"scripts": { <br></code>
+        <code>"dev": "nodemon --ext html,js,json app.js"<br> }</code>
+    </div>
+
+    <p class="m-3 my-3 leading-7">
+        This dev script now only listens to html, js or json files.
+        Also it listens to a specific file called app.js, where our server
+        is defined.
+    </p>
+
+</div>
+
+</div>
+
+<script src="../assets/js/scroll.js"></script>
+</body>
+</html>

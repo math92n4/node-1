@@ -1,0 +1,104 @@
+<div class="container p-20 lg:flex">
+    <div class="rounded-xl bg-boxColor box-shadow text-center lg:w-1/4 border-4 border-blue-600 outline outline-blue-400 lg:h-3/6 mb-7 p-5">
+        <h1 class="font-bold text-2xl">Content</h1>
+        <ol>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">Introduction</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">JavaScript</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Node</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Git</a></li>
+            
+        </ol>
+    </div>
+
+<div class="bg-boxColor box-shadow lg:w-1/2 lg:mx-32 border-4 border-blue-600 outline outline-blue-400 rounded-xl">
+    <h1 class="text-3xl font-bold m-4">Introduction</h1>
+    <p class="m-3 leading-7">
+        This website documents the learning goals for node.js course at KEA. The goal
+        for this website is to be a go to documentation for using express with node.js
+        throughout this course. Also, some basic JavaScript will be covered such
+        as functions and promises, aswell as going
+        through http, client/server, working with js modules 
+    </p>
+    
+    <h1 class="text-3xl font-bold m-4">JavaScript</h1>
+    <p class="my-3 m-3 leading-7">
+        JavaScript was invented as an adition to HTML and CSS. This would make it possible
+        to write functions to make any HTML update dynamically according to the choice of the users
+        who are using a website. <br>
+        JavaScript is currently one of the most written programming languages in the world, and even though
+        adding dynamic changes to any user interface, the JavaScript language has a lot more to offer
+        nowadays, than it had back when it was invented. <br>
+        JavaScript can be written in any browser. Just take a look yourself! <br> <br>
+        1) Open up Google Chrome <br>
+        2) Go to the developers tool by right clicking and press inspect <br>
+        3) Go to the console <br>
+        
+        In the console, it's possible to write functions, declaring variables and much more. <br>
+        But now, lets define a function and use it. <br>
+        Write this into the console: <br>
+    </p>
+
+        <div class="w-100 m-3 bg-black text-white rounded-xl">
+            <code class="text-white">function multiply(a,b) {<br>return a*b;<br>}</code>
+        </div>
+
+        <p class="my-3 m-3 leading-7">
+        If we call this functions and enter the two parameters, we can see that this function
+        returns the answer for multiplying these values</p>
+        <img class="m-4" src="../assets/images/home/console-function.png" alt="">
+    </p>
+
+    <h1 class="text-3xl font-bold m-4">Node</h1>
+    <p class="m-3 my-3 leading-7">
+         Rather than using JavaScript in our browser, it is possible to install Node as a runtime enviroment
+         for JavaScript. This means that it can run anywhere as long as Node is installed. <br>
+         <a class="underline"href="https://nodejs.org/en/download">Node.js download</a> <br>
+         Once it's downloaded, open op the terminal and make sure Node is downloaded: <br>
+    </p>
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>node -v</code>
+    </div>
+
+    <p class="m-3 leading-7 my-4">
+        If a version shows up, Node is downloaded. <br>
+        This means we can access Node in our terminal and write JavaScript code and run it.
+        To do this, write the exact same code as in the browser and call the function:
+    </p>
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>function multiply(a,b) {return a*b;} <br>
+        undefined <br>
+        multiply(3,2) <br>
+        6
+        </code>
+    </div>
+
+    <p class="m-3 leading-7 my-4">
+        To exit the terminal press CRTL + C twice
+    </p>
+
+    <h1 class="text-3xl font-bold m-4">Git</h1>
+    <p class="my-3 m-3 leading-7">
+        Git is a version control systems that allows you to stage current versions of your code. 
+        It also has tracking, so it's possible to go back to previous versions.
+        GitHub is the primary service to publish code. Once the code is ready and a repository is set up
+        on GitHub, it's very easy to publish the code. <br> Open a terminal in VS Code and commit and push with these commands:<br>
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// add all new and edited files</code> <br> 
+        <code>git add -A</code><br>
+        <code class="text-green-600">// commit the changes with a message</code><br>
+        <code>git commit -m "MESSAGE"</code><br>
+        <code class="text-green-600">// push the code to the repository</code><br>
+        <code>git push</code>
+    </div>
+
+</div>
+
+
+
+</div>
+
+<script src="../assets/js/scroll.js"></script>
+</body>
+</html>

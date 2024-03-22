@@ -1,0 +1,297 @@
+<div class="container p-20 lg:flex">
+    <div class="rounded-xl bg-boxColor box-shadow text-center lg:w-1/4 border-4 border-blue-600 outline outline-blue-400 lg:h-3/6 mb-7 p-5">
+        <h1 class="font-bold text-2xl">Content</h1>
+        <ol>
+            <li class="mb-3 mt-7"><a href="/#" class="hover:underline">Variables</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Objects</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Functions</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Callbacks</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Promises</a></li>
+            <li class="mb-3 mt-3"><a href="/#" class="hover:underline">Async / Await</a></li>
+            
+        </ol>
+    </div>
+
+<div class="bg-boxColor box-shadow lg:w-1/2 lg:mx-32 border-4 border-blue-600 outline outline-blue-400 rounded-xl">
+    <h1 class="text-3xl font-bold m-4">Variables</h1>
+    <p class="my-3 m-3 leading-7">
+        Variables in JavaScript can be defined with const, let and var. 
+        Looking at history, var was the primary way to define a function until let and const was implemented in JavaScript.
+    </p>
+    
+    <div class="w-100 m-3 bg-black text-white">
+    <code>const variable1 = 'Hello'</code> <br>
+    <code>let variable2 = 'from'</code> <br>
+    <code>var variable3 = 'JavaScript'</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        const declared variables cannot be reassigned. This means that if we instantiate a const variable,
+        it is not possible to reassign the value of that variable. <br> Example:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white">
+        <code>const variable1 = 'Hello'</code> <br>
+        <code>variable1 = 'newValue'</code> <br>
+        <code class="text-red-500">Error: Uncaught TypeError: Assignment to constant variable.</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        Luckily JavaScript has let which makes it possible to reassign the variable<br> Example:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white">
+        <code>let variable1 = 'Hello'</code> <br>
+        <code>variable1 = 'newValue'</code> <br>
+        <code class="text-green-600">// Outputs: 'newValue'</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        Let's now make a function to withdraw money to from wallet. Our function should look like this and make use of let:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white">
+        <code class="text-green-600">// We need a varialbe to keep track of the total amount in the wallet</code> <br>
+        <code>let totalWallet = 100;</code> <br>
+        <code class="text-green-600">// And now the function</code> <br>
+        <code>function deductAmount(amount) {</code> <br>
+        <code class="text-green-600">// If total is more or equal to amount, we can deduct</code> <br>
+        <code>if(totalWallet >= amount) {</code> <br>
+        <code>totalWallet -= amount;</code> <br>
+        <code>} else {</code> <br>
+        <code class="text-green-600">// If not, not enough money is in the wallet</code> <br>
+        <code>console.log('Not enough money'); <br> } <br> }</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        Now this makes it easy to reassign the value of a let variable, as this wouldn't be possible using const. <br>
+        But now what is var really and how can we make use of it? <br>
+        Let's take an example with the same code block as before:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white">
+        <code>let totalWallet = 100;</code> <br>
+        <code>function deductAmount(amount) {</code> <br>
+        <code>if(totalWallet >= amount) {</code> <br>
+        <code class="text-green-600">// Create a new var variable inside the if scope</code> <br>
+        <code>var newWallet = totalWallet -= amount;</code> <br>
+        <code>} else {</code> <br>
+        <code class="text-green-600">// Set the var to the original total of the wallet</code> <br>
+        <code>newWallet = totalWallet</code> <br>
+        <code>console.log('Not enough money');</code> <br>
+        <code class="text-green-600">// Return the var variable</code> <br>
+        <code>} <br> return newWallet; <br>}</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        With var it's possible to declare and instantiate a new variable inside a scope and then
+        return it outside of the scope. This would not be possible
+        with either const or let. <br>
+        A best practice is to only use const or let as it is easier to troubleshoot and makes the code more
+        readable.
+    </p>
+
+    <p class="my-3 m-3 leading-7">
+        JavaScript has 8 primitive data types:
+        <ul class="m-3">
+            <li>- null</li>
+            <li>- undefined</li>
+            <li>- boolean</li>
+            <li>- nnumber</li>
+            <li>- bigint</li>
+            <li>- string</li>
+            <li>- symbol</li>
+        </ul>
+    </p>
+
+    <p class="my-3 m-3 leading-7">
+        A primitve data type is defined as data that has no properties or methods. width the typeof keyword
+        It's possible to console.log the data type of a variable. This is relevant because numbers can be strings and vice versa
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>const numberOne = 1;</code> <br>
+        <code>const numberTwo = '2';</code> <br>
+        <code class="text-green-600">// Logs 'number' as it isn't wrapped in quotes</code> <br>
+        <code>console.log(typeof numberOne);</code> <br>
+        <code class="text-green-600">// Logs 'string' as it is wrapped in quotes</code> <br>
+        <code>console.log(typeof numberOne);</code> <br>
+        <code class="text-green-600">// Logs '12' as it is both a number and an string <br>// JavaScript displays it as a string</code> <br>
+        <code>console.log(numberOne + numberTwo);</code><br>
+        <code class="text-green-600">// If we want to actually add them <br>// we would have to cast the string to a number</code> <br>
+        <code>const newNumberTwo = Number(numberTwo);</code> <br>
+        <code class="text-green-600">// Logs 3 as it is both variables are numbers</code> <br>
+        <code>console.log(numberOne + newNumberTwo);</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        Some of the primitive data types can actually be objects using an object wrapper. Though we want primitives to be fast and lightweight, the 
+        object wrapper gives functionality to actually use functions on them.
+        This means that we can use methods/functions to capitalize strings as an example.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>const myString = 'hello';</code> <br>
+        <code>const upperCaseString = myString.toUpperCase();</code> <br>
+        <code class="text-green-600">// Outputs 'HELLO'</code> <br>
+        <code>console.log(upperCaseString);</code>
+    </div>
+    
+    <h1 class="text-3xl font-bold m-4">Objects</h1>
+    <p class="my-3 m-3 leading-7">
+        Objects data types are arrays and objects.
+        We can define an object by using const, let or var and then 
+        wrapping it's properties in curly brackets.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>const person = {<br></code>
+        <code>name: 'Tom',<br></code>
+        <code>lastName: 'Cruise',<br></code>
+        <code>age: 61<br>}</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        To access these attributes such as name an age in this example, we can call the 
+        name of the variable following by a dot an then the name of the property.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Outputs 'Tom'</code> <br>
+        <code>console.log(person.name);</code>
+        <code></code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        We can also assign the properties to other values, and this is a key part of
+        const. The variable itself cannot be reassigned but it's properties can.
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Reassign the property name</code> <br>
+        <code>person.name = 'Thomas'</code> <br>
+        <code class="text-green-600">// Outputs 'Thomas'</code> <br>
+        <code>console.log(person.name)</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        Arrays can be defined by using const, let or var following by a set of square brackets.
+        Arrays can contain objects aswell as primitves and are accessed through index or other methods
+        defined in the arrays class such as push(), pop() and slice()
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>const numbers = [1, 2, 4, 6, 7, 10]</code> <br>
+        <code class="text-green-600">// Outputs 1</code> <br>
+        <code>console.log(numbers[0])</code> <br> <br>
+        <code class="text-green-600">// Pushes an element to the end of an array</code> <br>
+        <code>numbers.push(12)</code> <br>
+        <code class="text-green-600">// numbers is now [1, 2, 4, 6, 7, 10, 12]</code> <br> <br>
+        <code class="text-green-600">// Pop an element (remove from the top)</code><br>
+        <code>numbers.pop()</code><br>
+        <code class="text-green-600">// numbers is now back to [1, 2, 4, 6, 7, 10]</code> <br>
+
+    </div>
+
+    <h1 class="text-3xl font-bold m-4">Functions</h1>
+
+    <p class="my-3 m-3 leading-7">
+        Functions can be defined like this:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>function multiply(a,b) { <br> return a*b; <br>}</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        This function returns the two numbers a and b multiplied
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code>const result = multiply(2,3)</code> <br>
+        <code class="text-green-600">// Outputs 6</code> <br>
+        <code>console.log(result)</code>
+    </div>
+
+    <p class="my-3 m-3 leading-7">
+        Functions can also be defined with arrows and can be either assigned to variables or
+        be anonymous:
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Example anonymous functions</code> <br>
+        <code>const multiply3 = function (a*b) {</code> <br>
+        <code>return a*b <br>}</code> <br> <br>
+        <code class="text-green-600">// Example of arrow functions</code> <br>
+        <code>const multiply = (a,b) => a*b;</code> <br> <br>
+        <code>const multiply2 = (a,b) => {</code> <br>
+        <code>return a*b; <br>}</code>
+           
+    </div>
+    
+    <h1 class="text-3xl font-bold m-4">Callbacks</h1>
+    <p class="my-3 m-3 leading-7">
+        Callback functions are used to handle JavaScript's asynchronous way of handling things.
+        If we make a call to fetch some data somewhere it's important to now that all data has been
+        retrieved before updating the UI as an example. In other words we use callbacks
+        to execute some code after we are sure something else has been executed before the callback.<br>
+        A callback function is defined by passing a function as a parameter to another function. <br>
+        Some callback functions are build into JavaScript such as setTimeout() or listening to events 
+        with addEventlistener().
+    </p>
+
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Example of a callback</code> <br>
+        <code>function greet(name, callback) { <br>console.log(`hello ${name}`); <br></code>
+        <code>callback();<br>}</code> <br> <br>
+        <code>function theCallback() { <br>console.log('nice to meet you'); <br>}</code> <br> <br>
+        <code>greet('Tom Cruise', theCallback);</code>
+    </div>
+
+    <h1 class="text-3xl font-bold m-4">Promises</h1>
+    <p class="my-3 m-3 leading-7">
+        Another way of handling asynchronous JavaScript is using promises.<br>
+        A promise has three possible states: pending, fulfilled or rejected. We use
+        a promise by adding a .then() after a function call. When the promise is
+        is created it has a pending state. Then it's either fulfilled or rejected. But before
+        we know if its fulfilled or rejected, we chain another .then() to get the actual data from the call.
+        <br>Adding a .catch() in the end of a promise catches any error that may occur. <br>
+        In this example fetch() will be used, which makes it possible to get data from an API
+        but always returns a promise.
+    </p>
+    
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Example of a promise</code> <br>
+        <code>fetch('/api/data')</code> <br>
+        <code>.then(response => response.json())</code> <br>
+        <code>.then(data) => { <br>console.log(data) <br>})</code> <br>
+        <code>.catch(error => { <br>console.log(error); <br>})</code>
+    </div>
+
+    <h1 class="text-3xl font-bold m-4">Async / Await</h1>
+    <p class="my-3 m-3 leading-7">
+        Is also possible to hande asynchronous code using async and await, which is written
+        in fewer lines than a promise, but they serve the same purpose. The syntax is a bit different.
+        Add a async keyword the in the function declaration and use await before calling the function
+        with await. <br>
+        One downside to using async and await is to have it wrapped in a try catch block.
+        This is the only way we can handle errors. 
+    </p>
+    <div class="w-100 m-3 bg-black text-white rounded-xl">
+        <code class="text-green-600">// Example async / await</code> <br>
+        <code>async function fetchData() {</code> <br>
+        <code>try {</code><br>
+        <code>const response = fetch('api/data')</code><br>
+        <code>const data = await reponse.json()</code> <br>
+        <code class="text-green-600">// Do something with the data like console.log(data)</code> <br>
+        <code class="text-green-600">// Catch error if any</code> <br>
+        <code>} catch (error) { <br>console.log(error) <br>} <br>}</code>
+    </div>
+
+</div>
+
+</div>
+
+<script src="../assets/js/scroll.js"></script>
+</body>
+</html>
